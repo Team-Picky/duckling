@@ -10,6 +10,7 @@
 module Duckling.Quantity.Helpers
   ( getValue
   , isSimpleQuantity
+  , isSimpleLatentQuantity
   , quantity
   , unitOnly
   , valueOnly
@@ -38,6 +39,12 @@ getValue opsMap match = HashMap.lookupDefault id (Text.toLower match) opsMap
 
 -- -----------------------------------------------------------------
 -- Patterns
+
+isSimpleLatentQuantity :: Predicate
+isSimpleLatentQuantity (Token Quantity QuantityData {TQuantity.unit = Nothing
+                                              , TQuantity.value = Just _})
+ = True
+isSimpleLatentQuantity _ = False
 
 isSimpleQuantity :: Predicate
 isSimpleQuantity (Token Quantity QuantityData {TQuantity.unit = Just _

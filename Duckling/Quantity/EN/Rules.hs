@@ -239,6 +239,23 @@ ruleQuantityLatent = Rule
       _ -> Nothing
   }
 
+ruleQuantityLatentProduct :: Rule
+ruleQuantityLatentProduct = Rule
+  { name = "<quantity> (latent) product"
+  , pattern =
+    [ Predicate isSimpleLatentQuantity
+    , regex "(\\w+)"
+    ]
+  , prod = \case
+      (_:
+      --  Token Quantity QuantityData{TQuantity.value = Just v
+      --                               , TQuantity.unit = Nothing }:
+      --  (Token RegexMatch (GroupMatch (product:_)):
+      --  _)) ->
+         (Token Quantity qd:Token RegexMatch (GroupMatch (product:_)):_)) ->
+        Just . (Token Quantity . mkLatent) $ withProduct (Text.toLower product) qd {TQuantity.unit = Nothing}
+      _ -> Nothing
+  }
 
 rules :: [Rule]
 rules =
@@ -251,6 +268,7 @@ rules =
   , ruleIntervalDash
   , rulePrecision
   , ruleQuantityLatent
+  , ruleQuantityLatentProduct
   ]
   ++ ruleNumeralQuantities
   ++ ruleAQuantity

@@ -33,9 +33,11 @@ latentCorpus = (testContext, testOptions {withLatent = True}, latentExamples)
                 , "four"
                 , "~ four"
                 ]
-      ,
-      examples (simple Unnamed 38.5 Nothing)
+      , examples (simple Unnamed 38.5 Nothing)
                 [ "about 38.5"
+                ]
+      , examples (simple Unnamed 5 (Just "bananas"))
+                [ "5 bananas"
                 ]
       ]
 
