@@ -36,6 +36,8 @@ quantities =
   , ("<quantity> grams", "(((m(illi)?[.]?)|(k(ilo)?)[.]?)?g(ram)?s?[.]?)[.]?", TQuantity.Gram)
   , ("<quantity> lb", "((lb|pound)s?)", TQuantity.Pound)
   , ("<quantity> oz", "((ounces?)|oz)", TQuantity.Ounce)
+  , ("<quantity> tablespoon", "(tablespoon(s)?|tbsp(\\.)?)", TQuantity.Tablespoon )
+  , ("<quantity> teaspoon", "(teaspoon(s)?|tsp(\\.)?)", TQuantity.Teaspoon )
   ]
 
 opsMap :: HashMap Text (Double -> Double)
