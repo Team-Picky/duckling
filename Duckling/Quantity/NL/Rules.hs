@@ -38,8 +38,8 @@ quantities =
   , ("<quantity> kilograms",    "((k(ilo)?)(g(ram)?)?)", TQuantity.Gram)
   , ("<quantity> pond",         "(pond(je(s)?)?)", TQuantity.Gram)
   , ("<quantity> ons",          "(ons(je(s)?)?)", TQuantity.Gram)
-  , ("<quantity> theelepel",    "(theelepel(s)?)", TQuantity.Teaspoon)
-  , ("<quantity> eetlepel",    "(eetlepel(s)?)", TQuantity.Tablespoon)
+  , ("<quantity> theelepel",    "(t(hee)?l(epel)?(s)?)", TQuantity.Teaspoon)
+  , ("<quantity> eetlepel",    "(e(et)?l(epel)?(s)?)", TQuantity.Tablespoon)
   ]
 
 opsMap :: HashMap Text (Double -> Double)
