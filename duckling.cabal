@@ -368,6 +368,7 @@ library
                      , Duckling.Duration.HU.Rules
                      , Duckling.Duration.IT.Rules
                      , Duckling.Duration.JA.Corpus
+                     , Duckling.Duration.JA.Rules
                      , Duckling.Duration.KA.Corpus
                      , Duckling.Duration.KA.Rules
                      , Duckling.Duration.KO.Corpus
@@ -741,6 +742,8 @@ library
                      , Duckling.Time.HU.Rules
                      , Duckling.Time.IT.Corpus
                      , Duckling.Time.IT.Rules
+                     , Duckling.Time.JA.Corpus
+                     , Duckling.Time.JA.Rules
                      , Duckling.Time.KA.Corpus
                      , Duckling.Time.KA.Rules
                      , Duckling.Time.KO.Corpus
@@ -1148,6 +1151,7 @@ test-suite duckling-test
                      , Duckling.Time.HE.Tests
                      , Duckling.Time.HU.Tests
                      , Duckling.Time.IT.Tests
+                     , Duckling.Time.JA.Tests
                      , Duckling.Time.KA.Tests
                      , Duckling.Time.KO.Tests
                      , Duckling.Time.NB.Tests
@@ -1224,7 +1228,7 @@ executable duckling-example-exe
                      , text
                      , text-show
                      , time
-                     , timezone-olson        >= 0.1.7 && < 0.3
+                     , timezone-olson        >= 0.2 && < 0.3
                      , timezone-series
                      , unordered-containers
   default-language:    Haskell2010
@@ -1259,7 +1263,7 @@ executable duckling-request-sample
                      , filepath              >= 1.4.0.0 && < 1.5
                      , text
                      , time
-                     , timezone-olson        >= 0.1.7 && < 0.3
+                     , timezone-olson        >= 0.2 && < 0.3
                      , timezone-series
                      , unordered-containers
   default-language:    Haskell2010
@@ -1278,7 +1282,7 @@ executable duckling-expensive
                      , filepath              >= 1.4.0.0 && < 1.5
                      , text
                      , time
-                     , timezone-olson        >= 0.1.7 && < 0.3
+                     , timezone-olson        >= 0.2 && < 0.3
                      , timezone-series
                      , unordered-containers
   default-language:    Haskell2010
