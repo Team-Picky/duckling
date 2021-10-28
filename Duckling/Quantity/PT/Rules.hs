@@ -70,7 +70,7 @@ ruleQuantityOfProduct = Rule
   { name = "<quantity> of product"
   , pattern =
     [ dimension Quantity
-    , regex "de (\\w+)"
+    , regex "(?:de +)?(\\S+(?: +\\S+)*)"
     ]
   , prod = \case
       (Token Quantity qd:Token RegexMatch (GroupMatch (product:_)):_) ->

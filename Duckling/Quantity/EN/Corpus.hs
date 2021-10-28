@@ -46,6 +46,9 @@ allExamples = concat
   [ examples (simple Pound 2 (Just "meat"))
              [ "two pounds of meat"
              ]
+  , examples (simple Pound 2 (Just "minced meat"))
+             [ "two pounds of minced meat"
+             ]
   , examples (simple Gram 2 Nothing)
              [ "2 grams"
              , "0.002 kg"
@@ -74,6 +77,9 @@ allExamples = concat
   , examples (simple Cup 3 (Just "sugar"))
              [ "3 Cups of sugar"
              , "3 Cups of SugAr"
+             ]
+  , examples (simple Cup 1 (Just "sugar"))
+             [ "1 cup sugar"
              ]
   , examples (simple Cup 0.75 Nothing)
              [ "3/4 cup"

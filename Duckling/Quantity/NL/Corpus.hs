@@ -52,6 +52,9 @@ allExamples = concat
   , examples (simple Cup 1 (Just "suiker"))
              [ "1 kopje suiker"
              ]
+  , examples (simple Cup 1 (Just "blonde suiker"))
+             [ "1 kopje blonde suiker"
+             ]
   , examples (simple Cup 3 (Just "suiker"))
              [ "3 kopjes suiker"
              ]

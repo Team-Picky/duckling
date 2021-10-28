@@ -32,4 +32,7 @@ allExamples = concat
   , examples (simple Tablespoon 3 (Just "sucre"))
              [ "3 Cuillères à soupe de sucre"
              ]
+  , examples (simple Tablespoon 3 (Just "sucre blonde"))
+             [ "3 Cuillères à soupe de sucre blonde"
+             ]
   ]
