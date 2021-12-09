@@ -93,7 +93,7 @@ ruleQuantityOfProduct = Rule
   { name = "<quantity> of product"
   , pattern =
     [ dimension Quantity
-    , regex "(?:of +)?(\\S+(?: +\\S+)*)"
+    , regex " (?:of +)?(\\S+(?: +\\S+)*)"
     ]
   , prod = \case
     (Token Quantity qd:Token RegexMatch (GroupMatch (product:_)):_) ->
@@ -246,26 +246,13 @@ ruleQuantityLatentProduct = Rule
   { name = "<quantity> (latent) product"
   , pattern =
     [ Predicate isPositive
-    , regex "(\\S+(?: +\\S+)*)"
+    , regex " (\\S+(?: +\\S+)*)"
     ]
   , prod = \case
       (_:
          (Token Quantity qd:Token RegexMatch (GroupMatch (_:_:product:_)):_)) ->
         Just . (Token Quantity . mkLatent) $ withProduct (Text.toLower product) qd {TQuantity.unit = Nothing}
       _ -> Nothing
-  }
-
-ruleQuantityProduct :: Rule
-ruleQuantityProduct = Rule
-  { name = "<quantity> product"
-  , pattern =
-    [ dimension Quantity
-    , regex "(\\S+(?: +\\S+)*)"
-    ]
-  , prod = \case
-    (Token Quantity qd:Token RegexMatch (GroupMatch (_:product:_)):_) ->
-      Just . Token Quantity $ withProduct (Text.toLower product) qd
-    _ -> Nothing
   }
 
 rules :: [Rule]
@@ -278,7 +265,6 @@ rules =
   , ruleIntervalNumeralDash
   , ruleIntervalDash
   , rulePrecision
---  , ruleQuantityProduct
   , ruleQuantityLatentProduct
   , ruleQuantityLatent
   ]
