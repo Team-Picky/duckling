@@ -35,4 +35,63 @@ allExamples = concat
   , examples (simple Tablespoon 3 (Just "sucre blonde"))
              [ "3 Cuillères à soupe de sucre blonde"
              ]
+  , examples (simple Teaspoon  3 (Just "sucre"))
+             [ "3 Cuillères à cafe de sucre"
+             , "3 Cuillères à café de sucre"
+             ]
+  , examples (simple Teaspoon 3 (Just "sucre blonde"))
+             [ "3 Cuillères à cafe de sucre blonde"
+             , "3 Cuillères à café de sucre blonde"
+             ]
+  , examples (simple Gram 2000 Nothing)
+             [ "2 kg"
+             , "2,0 kg"
+             , "2 kilogramme"
+             , "2 kilo"
+             , "2000 gramme"
+             , "2000 grammes"
+             , "2000 g"
+             , "deux mille gramme"
+             , "2000000 mg"
+             , "2000000 milligramme"
+             , "2000000 milligrammes"
+             ]
+  , examples (simple Cup 1 (Just "sucre"))
+             [ "1 tasse sucre"
+             , "1 tasse de sucre"
+             ]
+  , examples (simple Cup 1 (Just "fraises fraîches"))
+             [ "1 tasse fraises fraîches"
+             , "1 tasse de fraises fraîches"
+             ]
+  , examples (simple Cup 3 (Just "sucre"))
+             [ "3 tasses sucre"
+             , "3 tasses de sucre"
+             ]
+  , examples (simple Cup 0.75 Nothing)
+             [ "3/4 tasse"
+             , "0,75 tasse"
+             , ",75 tasse"
+             ]
+  , examples (simple Gram 500 (Just "fraises"))
+             [ "500 gramme fraises"
+             , "500g fraises"
+             , "0,5 kilogramme fraises"
+             , "0,5 kg fraises"
+             , "500000mg fraises"
+             ]
+  , examples (between Gram (100,1000) (Just "fraises"))
+              [ "100-1000 grammes fraises"
+              , "entre 100 et 1000 grammes fraises"
+              , "de 100 a 1000 g fraises"
+              , "de 100 à 1000 g fraises"
+              , "100 - 1000 g fraises"
+              ]
+  , examples (between Gram (2,7) Nothing)
+              [ "~2-7 grammes"
+              , "de 2 a 7 g"
+              , "entre 2,0 g et environ 7,0 g"
+              , "entre 0,002 kg et environ 0,007 kg"
+              , "2 - ~7 grammes"
+              ]
   ]
