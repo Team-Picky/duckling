@@ -31,6 +31,13 @@ allExamples = concat
              ]
   , examples (simple Tablespoon 3 (Just "sucre"))
              [ "3 Cuillères à soupe de sucre"
+             , "3 Cuillèr à soupe de sucre"
+             , "3 Cuiller à soupe de sucre"
+             , "3 C. à soupe de sucre"
+             , "3 C.às. de sucre"
+             , "3 C.s. de sucre"
+             , "3 Cas de sucre"
+             , "3 Càs de sucre"
              ]
   , examples (simple Tablespoon 3 (Just "sucre blonde"))
              [ "3 Cuillères à soupe de sucre blonde"
@@ -38,6 +45,12 @@ allExamples = concat
   , examples (simple Teaspoon  3 (Just "sucre"))
              [ "3 Cuillères à cafe de sucre"
              , "3 Cuillères à café de sucre"
+             , "3 Cuiller à café de sucre"
+             , "3 C. à café de sucre"
+             , "3 C.àc. de sucre"
+             , "3 C.c. de sucre"
+             , "3 Cac de sucre"
+             , "3 Càc de sucre"
              ]
   , examples (simple Teaspoon 3 (Just "sucre blonde"))
              [ "3 Cuillères à cafe de sucre blonde"

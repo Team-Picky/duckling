@@ -36,8 +36,8 @@ quantities =
   , ("<quantity> grams",              "(g(ramme(s)?)?)", TQuantity.Gram)
   , ("<quantity> milligrams",         "((m(illi)?)(g(ramme(s)?)?))", TQuantity.Gram)
   , ("<quantity> kilograms",          "((k(ilo)?)(g(ramme(s)?)?)?)", TQuantity.Gram)
-  , ("<quantity> theelepel à café",   "(cuill?(e|è)res? (a|à) caf(e|é))", TQuantity.Teaspoon)
-  , ("<quantity> cuillère à soupe",   "(cuill?(e|è)res? (a|à) soupe)", TQuantity.Tablespoon)
+  , ("<quantity> theelepel à café",   "((c((uill?(e|è)re?s?)|\\.)? (a|à) caf(e|é))|(c\\.?(a|à)?c\\.?))", TQuantity.Teaspoon)
+  , ("<quantity> cuillère à soupe",   "((c((uill?(e|è)re?s?)|\\.)? (a|à) soupe)|(c\\.?(a|à)?s\\.?))", TQuantity.Tablespoon)
   ]
 
 opsMap :: HashMap Text (Double -> Double)
