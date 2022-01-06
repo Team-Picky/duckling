@@ -29,12 +29,14 @@ data Unit
   = Bowl
   | Cup
   | Custom Text
+  | Clove
   | Dish
   | Gram
   | Ounce
   | Pint
   | Pound
   | Quart
+  | Sniff
   | Tablespoon
   | Teaspoon
   | Unnamed

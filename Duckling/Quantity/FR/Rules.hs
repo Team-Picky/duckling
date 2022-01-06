@@ -38,6 +38,8 @@ quantities =
   , ("<quantity> kilograms",          "((k(ilo)?)(g(ramme(s)?)?)?)", TQuantity.Gram)
   , ("<quantity> theelepel à café",   "((c((uill?(e|è)re?s?)|\\.)? (a|à) caf(e|é))|(c\\.?(a|à)?c\\.?))", TQuantity.Teaspoon)
   , ("<quantity> cuillère à soupe",   "((c((uill?(e|è)re?s?)|\\.)? (a|à) soupe)|(c\\.?(a|à)?s\\.?))", TQuantity.Tablespoon)
+  , ("<quantity> gousse",             "(gousse(s)?)", TQuantity.Clove )
+  , ("<quantity> pincée",             "(pinc((es)|(er)|((e|é)e(s)?)))", TQuantity.Sniff )
   ]
 
 opsMap :: HashMap Text (Double -> Double)
@@ -84,7 +86,7 @@ ruleQuantityOfProduct = Rule
   { name = "<quantity> product"
   , pattern =
     [ dimension Quantity
-    , regex "(?:de +)?(\\S+(?: +\\S+)*)"
+    , regex "(?:(?:de +)|(?:d'))?(\\S+(?: +\\S+)*)"
     ]
   , prod = \case
     (Token Quantity qd:Token RegexMatch (GroupMatch (product:_)):_) ->

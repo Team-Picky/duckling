@@ -125,4 +125,17 @@ allExamples = concat
               , "over four ounces of chocolate"
               , "more than four ounces of chocolate"
               ]
+  , examples (simple Clove 2 Nothing)
+             [ "2 cloves"
+             ]
+  , examples (simple Clove 1 (Just "garlic"))
+             [ "1 clove of garlic"
+             ]
+  , examples (simple Sniff 2 Nothing)
+             [ "2 sniffs"
+             , "2 pinches"
+             ]
+  , examples (simple Sniff 1 (Just "salt"))
+             [ "1 Sniff of salt"
+             ]
   ]

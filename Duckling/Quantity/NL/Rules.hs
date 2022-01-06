@@ -39,7 +39,9 @@ quantities =
   , ("<quantity> pond",         "(pond(je(s)?)?)", TQuantity.Gram)
   , ("<quantity> ons",          "(ons(je(s)?)?)", TQuantity.Gram)
   , ("<quantity> theelepel",    "(t(hee)?l(epel)?(s)?)", TQuantity.Teaspoon)
-  , ("<quantity> eetlepel",    "(e(et)?l(epel)?(s)?)", TQuantity.Tablespoon)
+  , ("<quantity> eetlepel",     "(e(et)?l(epel)?(s)?)", TQuantity.Tablespoon)
+  , ("<quantity> teen",         "((tenen)|(teen(tje(s)?)?))", TQuantity.Clove)
+  , ("<quantity> snuifje",      "((snuiven)|(snuif(je(s)?)?))", TQuantity.Sniff) --
   ]
 
 opsMap :: HashMap Text (Double -> Double)

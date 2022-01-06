@@ -86,4 +86,17 @@ allExamples = concat
               , "tussen 0,002 kg en ongeveer 0,007 kg"
               , "2 - ~7 gram"
               ]
+  , examples (simple Clove 2 Nothing)
+             [ "2 teentjes"
+             ]
+  , examples (simple Clove 1 (Just "look"))
+             [ "1 teentje look"
+             ]
+  , examples (simple Sniff 2 Nothing)
+             [ "2 snuifjes"
+             ]
+  , examples (simple Sniff 1 (Just "zout"))
+             [ "1 snuifje zout"
+             , "een snuifje zout"
+             ]
   ]

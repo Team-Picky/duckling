@@ -107,4 +107,17 @@ allExamples = concat
               , "entre 0,002 kg et environ 0,007 kg"
               , "2 - ~7 grammes"
               ]
+  , examples (simple Clove 2 Nothing)
+             [ "2 gousses"
+             ]
+  , examples (simple Clove 1 (Just "aile"))
+             [ "1 gousse d'aile"
+             ]
+  , examples (simple Sniff 2 Nothing)
+             [ "2 pinces"
+             ]
+  , examples (simple Sniff 1 (Just "sel"))
+             [ "1 pincée de sel"
+             , "une pincée de sel"
+             ]
   ]
