@@ -189,5 +189,11 @@ allExamples =
       examples
         (simple (Custom "Slice") 2 (Just "thyme"))
         [ "2 slices of thyme"
+        ],
+      examples
+        (simple (Custom "Splash") 1 (Just "olive oil"))
+        [ "1 splash of olive oil",
+          "a touch of olive oil",
+          "1 dash of olive oil"
         ]
     ]

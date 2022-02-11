@@ -174,5 +174,12 @@ allExamples =
       examples
         (simple (Custom "Slice") 2 (Just "thym"))
         [ "2 tranches de thym"
+        ],
+      examples
+        (simple (Custom "Splash") 1 (Just "huile d'olive"))
+        [ "1 filet d'huile d'olive",
+          "un éclaboussure d'huile d'olive",
+          "un touche d'huile d'olive",
+          "un poigouttegne d'huile d'olive"
         ]
     ]

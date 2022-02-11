@@ -41,7 +41,8 @@ quantities =
     ("<quantity> sprig", "(sprig(s)?)", TQuantity.Custom "Sprig"),
     ("<quantity> bunch", "(bunch(es)?)", TQuantity.Custom "Bunch"),
     ("<quantity> handful", "(handful(s)?)", TQuantity.Custom "Handful"),
-    ("<quantity> slice", "(slice(s)?)", TQuantity.Custom "Slice")
+    ("<quantity> slice", "(slice(s)?)", TQuantity.Custom "Slice"),
+    ("<quantity> splash", "((splash)|(touch)|(dash))", TQuantity.Custom "Splash")
   ]
 
 opsMap :: HashMap Text (Double -> Double)

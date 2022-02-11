@@ -143,5 +143,12 @@ allExamples =
       examples
         (simple (Custom "Slice") 2 (Just "tijm"))
         [ "2 sneetjes tijm"
+        ],
+      examples
+        (simple (Custom "Splash") 1 (Just "olijfolie"))
+        [ "1 vleug olijfolie",
+          "1 vleugje olijfolie",
+          "1 scheut olijfolie",
+          "1 scheutje olijfolie"
         ]
     ]

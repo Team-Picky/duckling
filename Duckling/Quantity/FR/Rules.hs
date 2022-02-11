@@ -41,7 +41,8 @@ quantities =
     ("<quantity> tige", "((brin(dille)?(s)?)|(branche(s)?)|(tige(s)?))", TQuantity.Custom "Sprig"),
     ("<quantity> botte", "((botte(s)?)|(bouquet(s)?))", TQuantity.Custom "Bunch"),
     ("<quantity> poigné", "(poign(é|e)(e)?(s)?)", TQuantity.Custom "Handful"),
-    ("<quantity> tranche", "(tranche(s)?)", TQuantity.Custom "Slice")
+    ("<quantity> tranche", "(tranche(s)?)", TQuantity.Custom "Slice"),
+    ("<quantity> filet", "((filet)|((e|é)claboussure)|(touche)|(goutte))", TQuantity.Custom "Splash")
   ]
 
 opsMap :: HashMap Text (Double -> Double)
