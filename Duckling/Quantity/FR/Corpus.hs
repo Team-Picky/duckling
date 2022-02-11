@@ -180,6 +180,6 @@ allExamples =
         [ "1 filet d'huile d'olive",
           "un éclaboussure d'huile d'olive",
           "un touche d'huile d'olive",
-          "un poigouttegne d'huile d'olive"
+          "un goutte d'huile d'olive"
         ]
     ]

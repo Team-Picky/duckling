@@ -39,7 +39,7 @@ quantities =
     ("<quantity> gousse", "(gousse(s)?)", TQuantity.Clove),
     ("<quantity> pincée", "(pinc((es)|(er)|((e|é)e(s)?)))", TQuantity.Sniff),
     ("<quantity> tige", "((brin(dille)?(s)?)|(branche(s)?)|(tige(s)?))", TQuantity.Custom "Sprig"),
-    ("<quantity> botte", "((botte(s)?)|(bouquet(s)?))", TQuantity.Custom "Bunch"),
+    ("<quantity> botte", "((botte(s)?)|(bouquet(s)?)|(tas))", TQuantity.Custom "Bunch"),
     ("<quantity> poigné", "(poign(é|e)(e)?(s)?)", TQuantity.Custom "Handful"),
     ("<quantity> tranche", "(tranche(s)?)", TQuantity.Custom "Slice"),
     ("<quantity> filet", "((filet)|((e|é)claboussure)|(touche)|(goutte))", TQuantity.Custom "Splash")
