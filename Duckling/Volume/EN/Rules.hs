@@ -15,6 +15,8 @@ module Duckling.Volume.EN.Rules
 import Data.Text (Text)
 import Prelude
 import Data.String
+import Data.HashMap.Strict (HashMap)
+import qualified Data.HashMap.Strict as HashMap
 
 import Duckling.Dimensions.Types
 import Duckling.Types
@@ -25,23 +27,46 @@ import qualified Duckling.Volume.Types as TVolume
 import qualified Duckling.Numeral.Types as TNumeral
 
 volumes :: [(Text, String, TVolume.Unit)]
-volumes = [ ("<latent vol> ml", "m(l(s?)|illilit(er|re)s?)", TVolume.Millilitre)
-          , ("<vol> hectoliters", "hectolit(er|re)s?", TVolume.Hectolitre)
-          , ("<vol> liters", "l(it(er|re)s?)?", TVolume.Litre)
-          , ("<latent vol> gallon", "gal((l?ons?)|s)?", TVolume.Gallon)
+volumes = [ ("<latent vol> ml", "(m(l(s?)|illilit(er|re)s?))", TVolume.Millilitre)
+          , ("<vol> hectoliters", "(h(l(s?)|ectolit(er|re)s?))", TVolume.Hectolitre)
+          , ("<vol> deciliters", "(d(l(s?)|ecilit(er|re)s?))", TVolume.Litre)
+          , ("<vol> centiliters", "(c(l(s?)|entilit(er|re)s?))", TVolume.Litre)
+          , ("<vol> liters", "(l(it(er|re)s?)?)", TVolume.Litre)
+          , ("<latent vol> gallon", "(gal((l?ons?)|s)?)", TVolume.Gallon)
           ]
 
-rulesVolumes :: [Rule]
-rulesVolumes = map go volumes
+opsMap :: HashMap Text (Double -> Double)
+opsMap =
+  HashMap.fromList
+    [ ("centiliter", (/ 100)),
+      ("centiliters", (/ 100)),
+      ("centilitre", (/ 100)),
+      ("centilitres", (/ 100)),
+      ("cl", (/ 100)),
+      ("deciliter", (/ 10)),
+      ("deciliters", (/ 10)),
+      ("decilitre", (/ 10)),
+      ("decilitres", (/ 10)),
+      ("dl", (/ 10))
+    ]
+
+ruleNumeralVolumes :: [Rule]
+ruleNumeralVolumes = map go volumes
   where
     go :: (Text, String, TVolume.Unit) -> Rule
-    go (name, regexPattern, u) = Rule
-      { name = name
-      , pattern =
-        [ regex regexPattern
-        ]
-      , prod = \_ -> Just . Token Volume $ unitOnly u
-      }
+    go (name, regexPattern, u) =
+      Rule
+        { name = name,
+          pattern = [Predicate isPositive, regex regexPattern],
+          prod = \case
+            ( Token Numeral nd
+                : Token RegexMatch (GroupMatch (match : _))
+                : _
+              ) -> Just . Token Volume $ volume u value
+                where
+                  value = getValue opsMap match $ TNumeral.value nd
+            _ -> Nothing
+        }
 
 fractions :: [(Text, String, Double)]
 fractions = [ ("one", "an? ", 1)
@@ -53,22 +78,24 @@ fractions = [ ("one", "an? ", 1)
             ]
 
 rulesFractionalVolume :: [Rule]
-rulesFractionalVolume = map go fractions
+rulesFractionalVolume = flatmap go fractions
   where
-    go :: (Text, String, Double) -> Rule
-    go (name, regexPattern, f) = Rule
-      { name = name
-      , pattern =
-        [ regex regexPattern
-        , Predicate isUnitOnly
-        ]
-      , prod = \case
-        (_:
-         Token Volume TVolume.VolumeData{TVolume.unit = Just u}:
-         _) ->
-          Just . Token Volume $ volume u f
-        _ -> Nothing
-      }
+    go :: (Text, String, Double) -> [Rule]
+    go (fractionName, fractionRegexPattern, f) =
+      map goVolumes volumes
+        where
+          goVolumes :: (Text, String, TVolume.Unit) -> Rule
+          goVolumes (name, regexPattern, u) = Rule
+            { name = fractionName <> " " <> name
+            , pattern =
+              [  regex fractionRegexPattern
+              , regex regexPattern
+              ]
+            , prod = \case
+              (_:_:_) ->
+                Just . Token Volume $ volume u f
+              _ -> Nothing
+            }
 
 rulePrecision :: Rule
 rulePrecision = Rule
@@ -162,5 +189,5 @@ rules = [ rulePrecision
         , ruleIntervalMax
         , ruleIntervalMin
         ]
-        ++ rulesVolumes
+        ++ ruleNumeralVolumes
         ++ rulesFractionalVolume

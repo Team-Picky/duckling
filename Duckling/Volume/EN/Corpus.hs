@@ -44,6 +44,22 @@ allExamples = concat
              [ "quarter-litre"
              , "fourth of liter"
              ]
+  , examples (simple Litre 0.02)
+             [ "2 centiliter"
+             , "2 centiliters"
+             , "2 centilitre"
+             , "2 centilitres"
+             , "2cl"
+             , "2 cl"
+             ]
+  , examples (simple Litre 0.2)
+             [ "2 deciliter"
+             , "2 deciliters"
+             , "2 decilitre"
+             , "2 decilitres"
+             , "2dl"
+             , "2 dl"
+             ]
   , examples (simple Millilitre 1)
              [ "one milliliter"
              , "an ml"
