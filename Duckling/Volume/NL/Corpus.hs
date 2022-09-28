@@ -34,6 +34,18 @@ allExamples = concat
              , "2l"
              , "2 l"
              ]
+  , examples (simple Litre 0.02)
+             [ "2 centiliter"
+             , "2 centiliters"
+             , "2cl"
+             , "2 cl"
+             ]
+  , examples (simple Litre 0.2)
+             [ "2 deciliter"
+             , "2 deciliters"
+             , "2dl"
+             , "2 dl"
+             ]
   , examples (simple Hectolitre 3)
              [ "3 hectoliter"
              , "3 hl"

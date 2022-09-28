@@ -9,7 +9,9 @@
 
 
 module Duckling.Volume.Helpers
-  ( isSimpleVolume
+  ( getValue
+  , flatmap
+  , isSimpleVolume
   , isUnitOnly
   , volume
   , unitOnly
@@ -21,13 +23,23 @@ module Duckling.Volume.Helpers
   , withMax
   ) where
 
+import Data.HashMap.Strict (HashMap)
 import Data.Text (Text)
 import Prelude
+import qualified Data.HashMap.Strict as HashMap
+import qualified Data.Text as Text
 
 import Duckling.Dimensions.Types
 import Duckling.Volume.Types (Unit(..), VolumeData(..))
 import Duckling.Types
 import qualified Duckling.Volume.Types as TVolume
+
+getValue :: HashMap Text (Double -> Double) -> Text -> Double -> Double
+getValue opsMap match = HashMap.lookupDefault id (Text.toLower match) opsMap
+
+flatmap :: (t -> [a]) -> [t] -> [a]
+flatmap _ [] = []
+flatmap f (x:xs) = f x ++ flatmap f xs
 
 -- -----------------------------------------------------------------
 -- Patterns
