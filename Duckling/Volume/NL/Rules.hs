@@ -29,8 +29,8 @@ import Duckling.Types
 import Prelude
 
 volumes :: [(Text, String, TVolume.Unit)]
-volumes = [ ("<latent vol> ml"    , "(m(illi)?l(iter)?)" , TVolume.Millilitre)
-          , ("<vol> hl"           , "(h(ecto)?l(iter)?)"   , TVolume.Hectolitre)
+volumes = [ ("<latent vol> ml"    , "(m(illi)?l(iters?)?)" , TVolume.Millilitre)
+          , ("<vol> hl"           , "(h(ecto)?l(iters?)?)"   , TVolume.Hectolitre)
           , ("<vol> centiliters"       , "(c(enti)?l(iters?)?)"    , TVolume.Litre)
           , ("<vol> deciliters"       , "(d(eci)?l(iters?)?)"    , TVolume.Litre)
           , ("<vol> liters"       , "(l(iters?)?)"    , TVolume.Litre)
@@ -90,9 +90,98 @@ rulesFractionalVolume = flatmap go fractions
               _ -> Nothing
             }
 
+rulePrecision :: Rule
+rulePrecision = Rule
+  { name = "ongeveer <volume>"
+  , pattern =
+    [ regex "\\~|exact|precies|ongeveer|dichtbij|rond|bijna"
+    , dimension Volume
+    ]
+    , prod = \case
+      (_:token:_) -> Just token
+      _ -> Nothing
+  }
+
+ruleIntervalBetweenNumeral :: Rule
+ruleIntervalBetweenNumeral = Rule
+  { name = "tussen|van <numeral> en|tot <volume>"
+  , pattern =
+    [ regex "tussen|van"
+    , Predicate isPositive
+    , regex "en|tot"
+    , Predicate isSimpleVolume
+    ]
+  , prod = \case
+      (_:
+       Token Numeral TNumeral.NumeralData{TNumeral.value = from}:
+       _:
+       Token Volume TVolume.VolumeData{TVolume.value = Just to
+                                  , TVolume.unit = Just u}:
+       _) | from < to ->
+        Just . Token Volume . withInterval (from, to) $ unitOnly u
+      _ -> Nothing
+  }
+
+ruleIntervalBetween :: Rule
+ruleIntervalBetween = Rule
+  { name = "tussen|van <volume> en|tot <volume>"
+  , pattern =
+    [ regex "tussen|van"
+    , Predicate isSimpleVolume
+    , regex "en|tot"
+    , Predicate isSimpleVolume
+    ]
+  , prod = \case
+      (_:
+       Token Volume TVolume.VolumeData{TVolume.value = Just from
+                                  , TVolume.unit = Just u1}:
+       _:
+       Token Volume TVolume.VolumeData{TVolume.value = Just to
+                                  , TVolume.unit = Just u2}:
+       _) | from < to && u1 == u2 ->
+        Just . Token Volume . withInterval (from, to) $ unitOnly u1
+      _ -> Nothing
+  }
+
+ruleIntervalMax :: Rule
+ruleIntervalMax = Rule
+  { name = "maximaal <volume>"
+  , pattern =
+    [ regex "onder|max(?:imaal)?|(?:ten )?hoogste(?:ns)?|(minder|kleiner|niet meer|lager) dan"
+    , Predicate isSimpleVolume
+    ]
+  , prod = \case
+      (_:
+       Token Volume TVolume.VolumeData{TVolume.value = Just to
+                                  , TVolume.unit = Just u}:
+       _) ->
+        Just . Token Volume . withMax to $ unitOnly u
+      _ -> Nothing
+  }
+
+ruleIntervalMin :: Rule
+ruleIntervalMin = Rule
+  { name = "minimaal <volume>"
+  , pattern =
+      [ regex "boven|(?:ten )?min((?:imaal)|ste(?:ns)?)?|(meer|groter|niet minder|hoger) dan"
+      , Predicate isSimpleVolume
+      ]
+    , prod = \case
+        (_:
+         Token Volume TVolume.VolumeData{TVolume.value = Just from
+                                    , TVolume.unit = Just u}:
+         _) ->
+          Just . Token Volume . withMin from $ unitOnly u
+        _ -> Nothing
+    }
+
 rules :: [Rule]
 rules =
-  [
+  [ rulePrecision
+  , ruleIntervalBetweenNumeral
+  , ruleIntervalBetween
+  , ruleIntervalMax
+  , ruleIntervalMin
   ]
   ++ ruleNumeralVolumes
   ++ rulesFractionalVolume
