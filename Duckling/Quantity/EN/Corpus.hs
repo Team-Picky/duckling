@@ -211,5 +211,29 @@ allExamples =
       examples
         (simple (Custom "Piece") 2 (Just "thyme"))
         [ "2 pieces of thyme"
+        ],
+      examples
+        (simple (Custom "Pot") 1 (Just "honey"))
+        [ "1 pot of honey"
+        ],
+      examples
+        (simple (Custom "Pot") 2 (Just "honey"))
+        [ "2 pots of honey"
+        ],
+      examples
+        (simple (Custom "Package") 1 (Just "rice"))
+        [ "1 package of rice"
+        ],
+      examples
+        (simple (Custom "Package") 2 (Just "rice"))
+        [ "2 packages of rice"
+        ],
+      examples
+        (simple (Custom "Bag") 1 (Just "bread"))
+        [ "1 bag of bread"
+        ],
+      examples
+        (simple (Custom "Bag") 2 (Just "bread"))
+        [ "2 bags of bread"
         ]
     ]

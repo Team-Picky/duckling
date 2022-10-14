@@ -131,6 +131,32 @@ allExamples =
         [ "1 pièce d'aile"
         ],
       examples
+        (simple (Custom "Pot") 1 (Just "huile"))
+        [ "1 pot d'huile",
+          "1 petit pot d'huile"
+        ],
+      examples
+        (simple (Custom "Pot") 2 (Just "huile"))
+        [ "2 pots d'huile",
+          "2 petit pots d'huile"
+        ],
+      examples
+        (simple (Custom "Package") 1 (Just "riz"))
+        [ "1 paquet de riz"
+        ],
+      examples
+        (simple (Custom "Package") 2 (Just "riz"))
+        [ "2 paquets de riz"
+        ],
+      examples
+        (simple (Custom "Bag") 1 (Just "pain"))
+        [ "1 sachet de pain"
+        ],
+      examples
+        (simple (Custom "Bag") 2 (Just "pain"))
+        [ "2 sachets de pain"
+        ],
+      examples
         (simple Sniff 2 Nothing)
         [ "2 pinces"
         ],

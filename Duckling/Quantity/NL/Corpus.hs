@@ -171,6 +171,36 @@ allExamples =
           "2 stukjes brood"
         ],
       examples
+        (simple (Custom "Pot") 1 (Just "honing"))
+        [ "1 pot honing",
+          "1 potje honing"
+        ],
+      examples
+        (simple (Custom "Pot") 2 (Just "honing"))
+        [ "2 potten honing",
+          "2 potjes honing"
+        ],
+      examples
+        (simple (Custom "Package") 1 (Just "rijst"))
+        [ "1 pak rijst",
+          "1 pakje rijst"
+        ],
+      examples
+        (simple (Custom "Package") 2 (Just "rijst"))
+        [ "2 pakken rijst",
+          "2 pakjes rijst"
+        ],
+      examples
+        (simple (Custom "Bag") 1 (Just "brood"))
+        [ "1 zak brood",
+          "1 zakje brood"
+        ],
+      examples
+        (simple (Custom "Bag") 2 (Just "brood"))
+        [ "2 zakken brood",
+          "2 zakjes brood"
+        ],
+      examples
         (simple (Custom "Splash") 1 (Just "olijfolie"))
         [ "1 vleug olijfolie",
           "1 vleugje olijfolie",

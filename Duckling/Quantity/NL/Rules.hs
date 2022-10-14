@@ -45,7 +45,10 @@ quantities =
     ("<quantity> handvol", "(hand((vol)|(je(s)?))?)", TQuantity.Custom "Handful"),
     ("<quantity> sneetje", "(snee(tje(s)?)?|sneden)", TQuantity.Custom "Slice"),
     ("<quantity> scheutje", "((scheut((en)|(jes?))?)|(vleug((en)|(jes?))?))", TQuantity.Custom "Splash"),
-    ("<quantity> stuk", "(stuk((ken)|(jes?))?)", TQuantity.Custom "Piece")
+    ("<quantity> stuk", "(stuk((ken)|(jes?))?)", TQuantity.Custom "Piece"),
+    ("<quantity> pot", "(pot((ten)|(jes?))?)", TQuantity.Custom "Pot"),
+    ("<quantity> pak", "(pak((ken)|(jes?))?)", TQuantity.Custom "Package"),
+    ("<quantity> zak", "(zak((ken)|(jes?))?)", TQuantity.Custom "Bag")
   ]
 
 opsMap :: HashMap Text (Double -> Double)
