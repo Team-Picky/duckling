@@ -157,6 +157,14 @@ allExamples =
         [ "2 sachets de pain"
         ],
       examples
+        (simple (Custom "Cube") 1 (Just "beurre"))
+        [ "1 cube de beurre"
+        ],
+      examples
+        (simple (Custom "Cube") 2 (Just "beurre"))
+        [ "2 cubes de beurre"
+        ],
+      examples
         (simple Sniff 2 Nothing)
         [ "2 pinces"
         ],

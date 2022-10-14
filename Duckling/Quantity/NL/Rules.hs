@@ -41,14 +41,17 @@ quantities =
     ("<quantity> teen", "((tenen)|(teen(tje(s)?)?))", TQuantity.Clove),
     ("<quantity> snuifje", "((snuiven)|(snuif(je(s)?)?))", TQuantity.Sniff),
     ("<quantity> takje", "(tak(je(s)?)?)", TQuantity.Custom "Sprig"),
-    ("<quantity> bosje", "(bos(je(s)?)?)", TQuantity.Custom "Bunch"),
+    ("<quantity> bosje", "((bos(je(s)?)?)|(bussel(s|(tjes?)?)))", TQuantity.Custom "Bunch"),
     ("<quantity> handvol", "(hand((vol)|(je(s)?))?)", TQuantity.Custom "Handful"),
     ("<quantity> sneetje", "(snee(tje(s)?)?|sneden)", TQuantity.Custom "Slice"),
     ("<quantity> scheutje", "((scheut((en)|(jes?))?)|(vleug((en)|(jes?))?))", TQuantity.Custom "Splash"),
     ("<quantity> stuk", "(stuk((ken)|(jes?))?)", TQuantity.Custom "Piece"),
     ("<quantity> pot", "(pot((ten)|(jes?))?)", TQuantity.Custom "Pot"),
     ("<quantity> pak", "(pak((ken)|(jes?))?)", TQuantity.Custom "Package"),
-    ("<quantity> zak", "(zak((ken)|(jes?))?)", TQuantity.Custom "Bag")
+    ("<quantity> zak", "(zak((ken)|(jes?))?)", TQuantity.Custom "Bag"),
+    ("<quantity> stronk", "(stronk((en)|(jes?))?)", TQuantity.Custom "Stump"),
+    ("<quantity> stengel", "(stengel((s)|(tjes?))?)", TQuantity.Custom "Stalk"),
+    ("<quantity> blok", "(blok((ken)|(jes?))?)", TQuantity.Custom "Cube")
   ]
 
 opsMap :: HashMap Text (Double -> Double)

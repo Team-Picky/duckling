@@ -137,11 +137,15 @@ allExamples =
         ],
       examples
         (simple (Custom "Bunch") 1 (Just "tijm"))
-        [ "1 bosje tijm"
+        [ "1 bosje tijm",
+          "1 bussel tijm",
+          "1 busseltje tijm"
         ],
       examples
         (simple (Custom "Bunch") 2 (Just "tijm"))
-        [ "2 bosjes tijm"
+        [ "2 bosjes tijm",
+          "2 bussels tijm",
+          "2 busseltjes tijm"
         ],
       examples
         (simple (Custom "Handful") 1 (Just "tijm"))
@@ -199,6 +203,36 @@ allExamples =
         (simple (Custom "Bag") 2 (Just "brood"))
         [ "2 zakken brood",
           "2 zakjes brood"
+        ],
+      examples
+        (simple (Custom "Stump") 1 (Just "witloof"))
+        [ "1 stronk witloof",
+          "1 stronkje witloof"
+        ],
+      examples
+        (simple (Custom "Stump") 2 (Just "witloof"))
+        [ "2 stronken witloof",
+          "2 stronkjes witloof"
+        ],
+      examples
+        (simple (Custom "Stalk") 1 (Just "selder"))
+        [ "1 stengel selder",
+          "1 stengeltje selder"
+        ],
+      examples
+        (simple (Custom "Stalk") 2 (Just "selder"))
+        [ "2 stengels selder",
+          "2 stengeltjes selder"
+        ],
+      examples
+        (simple (Custom "Cube") 1 (Just "boter"))
+        [ "1 blok boter",
+          "1 blokje boter"
+        ],
+      examples
+        (simple (Custom "Cube") 2 (Just "boter"))
+        [ "2 blokken boter",
+          "2 blokjes boter"
         ],
       examples
         (simple (Custom "Splash") 1 (Just "olijfolie"))

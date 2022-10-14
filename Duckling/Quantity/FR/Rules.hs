@@ -45,8 +45,9 @@ quantities =
     ("<quantity> filet", "((filet)|((e|é)claboussure)|(touche)|(goutte))", TQuantity.Custom "Splash"),
     ("<quantity> piece", "(pièces?)", TQuantity.Custom "Piece"),
     ("<quantity> pot", "((petit )?pots?)", TQuantity.Custom "Pot"),
-    ("<quantity> pot", "(paquets?)", TQuantity.Custom "Package"),
-    ("<quantity> pot", "(sachets?)", TQuantity.Custom "Bag")
+    ("<quantity> paquet", "(paquets?)", TQuantity.Custom "Package"),
+    ("<quantity> sachet", "(sachets?)", TQuantity.Custom "Bag"),
+    ("<quantity> blok", "(cubes?)", TQuantity.Custom "Cube")
   ]
 
 opsMap :: HashMap Text (Double -> Double)

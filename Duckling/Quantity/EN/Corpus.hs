@@ -235,5 +235,29 @@ allExamples =
       examples
         (simple (Custom "Bag") 2 (Just "bread"))
         [ "2 bags of bread"
+        ],
+      examples
+        (simple (Custom "Stump") 1 (Just "chicory"))
+        [ "1 stump of chicory"
+        ],
+      examples
+        (simple (Custom "Stump") 2 (Just "chicory"))
+        [ "2 stumps of chicory"
+        ],
+      examples
+        (simple (Custom "Stalk") 1 (Just "celery"))
+        [ "1 stalk of celery"
+        ],
+      examples
+        (simple (Custom "Stalk") 2 (Just "celery"))
+        [ "2 stalks of celery"
+        ],
+      examples
+        (simple (Custom "Cube") 1 (Just "butter"))
+        [ "1 cube of butter"
+        ],
+      examples
+        (simple (Custom "Cube") 2 (Just "butter"))
+        [ "2 cubes of butter"
         ]
     ]
