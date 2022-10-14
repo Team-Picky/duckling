@@ -156,7 +156,9 @@ allExamples =
         ],
       examples
         (simple Sniff 1 (Just "salt"))
-        [ "1 Sniff of salt"
+        [ "1 Sniff of salt",
+          "1 pinch of salt",
+          "pinch of salt"
         ],
       examples
         (simple (Custom "Sprig") 1 (Just "thyme"))

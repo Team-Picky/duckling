@@ -36,7 +36,7 @@ quantities =
     ("<quantity> kilograms", "((k(ilo)?)(g(ram)?)?)", TQuantity.Gram),
     ("<quantity> pond", "(pond(je(s)?)?)", TQuantity.Gram),
     ("<quantity> ons", "(ons(je(s)?)?)", TQuantity.Gram),
-    ("<quantity> theelepel", "(t(hee)?l(epel)?(s)?)", TQuantity.Teaspoon),
+    ("<quantity> theelepel", "(((t(hee)?)|(k(offie)?))l(epel)?(s)?)", TQuantity.Teaspoon),
     ("<quantity> eetlepel", "(e(et)?l(epel)?(s)?)", TQuantity.Tablespoon),
     ("<quantity> teen", "((tenen)|(teen(tje(s)?)?))", TQuantity.Clove),
     ("<quantity> snuifje", "((snuiven)|(snuif(je(s)?)?))", TQuantity.Sniff),
@@ -44,7 +44,7 @@ quantities =
     ("<quantity> bosje", "(bos(je(s)?)?)", TQuantity.Custom "Bunch"),
     ("<quantity> handvol", "(hand((vol)|(je(s)?))?)", TQuantity.Custom "Handful"),
     ("<quantity> sneetje", "(snee(tje(s)?)?|sneden)", TQuantity.Custom "Slice"),
-    ("<quantity> scheutje", "((scheut(je)?)|(vleug(je)?))", TQuantity.Custom "Splash")
+    ("<quantity> scheutje", "((scheut((en)|(jes?))?)|(vleug((en)|(jes?))?))", TQuantity.Custom "Splash")
   ]
 
 opsMap :: HashMap Text (Double -> Double)
@@ -84,7 +84,7 @@ ruleAQuantity = map go quantities
     go (name, regexPattern, u) =
       Rule
         { name = name,
-          pattern = [regex ("een? " ++ regexPattern)],
+          pattern = [regex ("(?:een )?" ++ regexPattern)],
           prod = \case
             ( Token RegexMatch (GroupMatch (match : _))
                 : _

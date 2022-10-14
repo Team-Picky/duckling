@@ -133,7 +133,8 @@ allExamples =
       examples
         (simple Sniff 1 (Just "sel"))
         [ "1 pincée de sel",
-          "une pincée de sel"
+          "une pincée de sel",
+          "pincée de sel"
         ],
       examples
         (simple (Custom "Sprig") 1 (Just "thym"))

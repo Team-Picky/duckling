@@ -82,7 +82,7 @@ ruleAQuantity = map go quantities
     go (name, regexPattern, u) =
       Rule
         { name = name,
-          pattern = [regex ("une? " ++ regexPattern)],
+          pattern = [regex ("(une? )?" ++ regexPattern)],
           prod = \case
             ( Token RegexMatch (GroupMatch (match : _))
                 : _

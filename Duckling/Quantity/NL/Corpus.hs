@@ -149,6 +149,15 @@ allExamples =
         [ "1 vleug olijfolie",
           "1 vleugje olijfolie",
           "1 scheut olijfolie",
-          "1 scheutje olijfolie"
+          "1 scheutje olijfolie",
+          "scheutje olijfolie",
+          "scheutjes olijfolie"
+        ],
+      examples
+        (simple (Custom "Splash") 2 (Just "olijfolie"))
+        [ "2 vleugen olijfolie",
+          "2 vleugjes olijfolie",
+          "2 scheuten olijfolie",
+          "2 scheutjes olijfolie"
         ]
     ]
