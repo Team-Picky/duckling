@@ -112,6 +112,22 @@ allExamples =
           "een snuifje zout"
         ],
       examples
+        (simple Teaspoon 1 (Just "suiker"))
+        [ "1 theelepel suiker",
+          "1 tl suiker",
+          "1 kl suiker",
+          "1 koffielepel suiker"
+        ],
+      examples
+        (simple Teaspoon 2 (Just "suiker"))
+        [ "2 theelepels suiker",
+          "2 tl suiker",
+          "2 kl suiker",
+          "2 tls suiker",
+          "2 kls suiker",
+          "2 koffielepels suiker"
+        ],
+      examples
         (simple (Custom "Sprig") 1 (Just "tijm"))
         [ "1 takje tijm"
         ],
