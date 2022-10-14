@@ -197,5 +197,19 @@ allExamples =
         [ "1 splash of olive oil",
           "a touch of olive oil",
           "1 dash of olive oil"
+        ],
+      examples
+        (simple (Custom "Splash") 2 (Just "olive oil"))
+        [ "2 splashes of olive oil",
+          "2 touches of olive oil",
+          "2 dashes of olive oil"
+        ],
+      examples
+        (simple (Custom "Piece") 1 (Just "thyme"))
+        [ "1 piece of thyme"
+        ],
+      examples
+        (simple (Custom "Piece") 2 (Just "thyme"))
+        [ "2 pieces of thyme"
         ]
     ]

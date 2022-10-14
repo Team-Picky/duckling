@@ -127,6 +127,10 @@ allExamples =
         [ "1 gousse d'aile"
         ],
       examples
+        (simple (Custom "Piece") 1 (Just "aile"))
+        [ "1 pièce d'aile"
+        ],
+      examples
         (simple Sniff 2 Nothing)
         [ "2 pinces"
         ],
