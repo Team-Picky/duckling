@@ -259,5 +259,39 @@ allExamples =
       examples
         (simple (Custom "Cube") 2 (Just "butter"))
         [ "2 cubes of butter"
+        ],
+      examples
+        (simple (Custom "Bottle") 1 (Just "olive oil"))
+        [ "1 bottle of olive oil"
+        ],
+      examples
+        (simple (Custom "Bottle") 2 (Just "olive oil"))
+        [ "2 bottles of olive oil"
+        ],
+      examples
+        (simple (Custom "Plant") 1 (Just "basil"))
+        [ "1 plant of basil"
+        ],
+      examples
+        (simple (Custom "Plant") 2 (Just "basil"))
+        [ "2 plants of basil"
+        ],
+      examples
+        (simple (Custom "Can") 1 (Just "tomatoes"))
+        [ "1 can of tomatoes"
+        ],
+      examples
+        (simple (Custom "Can") 2 (Just "tomatoes"))
+        [ "2 cans of tomatoes"
+        ],
+      examples
+        (simple (Custom "Knob") 1 (Just "butter"))
+        [ "1 knob of butter",
+          "1 lump of butter"
+        ],
+      examples
+        (simple (Custom "Knob") 2 (Just "butter"))
+        [ "2 knobs of butter",
+          "2 lumps of butter"
         ]
     ]

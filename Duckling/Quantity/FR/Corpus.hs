@@ -220,5 +220,45 @@ allExamples =
           "un éclaboussure d'huile d'olive",
           "un touche d'huile d'olive",
           "un goutte d'huile d'olive"
+        ],
+      examples
+        (simple (Custom "Bottle") 1 (Just "huile d'olive"))
+        [ "1 bouteille d'huile d'olive"
+        ],
+      examples
+        (simple (Custom "Bottle") 2 (Just "huile d'olive"))
+        [ "2 bouteilles d'huile d'olive"
+        ],
+      examples
+        (simple (Custom "Plant") 1 (Just "basilicum"))
+        [ "1 plante de basilicum"
+        ],
+      examples
+        (simple (Custom "Plant") 2 (Just "basilicum"))
+        [ "2 plantes de basilicum"
+        ],
+      examples
+        (simple (Custom "Can") 1 (Just "tomates"))
+        [ "1 boîte de tomates",
+          "1 conserve tomates"
+        ],
+      examples
+        (simple (Custom "Can") 2 (Just "tomates"))
+        [ "2 boîtes de tomates",
+          "2 conserves de tomates"
+        ],
+      examples
+        (simple (Custom "Knob") 1 (Just "beurre"))
+        [ "1 noix de beurre",
+          "1 noisette de beurre",
+          "1 morceau de beurre",
+          "1 motte de beurre"
+        ],
+      examples
+        (simple (Custom "Knob") 2 (Just "beurre"))
+        [ "2 noix de beurre",
+          "2 noisettes de beurre",
+          "2 morceaux de beurre",
+          "2 mottes de beurre"
         ]
     ]

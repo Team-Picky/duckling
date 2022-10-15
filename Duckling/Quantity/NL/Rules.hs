@@ -51,7 +51,11 @@ quantities =
     ("<quantity> zak", "(zak((ken)|(jes?))?)", TQuantity.Custom "Bag"),
     ("<quantity> stronk", "(stronk((en)|(jes?))?)", TQuantity.Custom "Stump"),
     ("<quantity> stengel", "(stengel((s)|(tjes?))?)", TQuantity.Custom "Stalk"),
-    ("<quantity> blok", "(blok((ken)|(jes?))?)", TQuantity.Custom "Cube")
+    ("<quantity> blok", "(blok((ken)|(jes?))?)", TQuantity.Custom "Cube"),
+    ("<quantity> fles", "(fles((sen)|(jes?))?)", TQuantity.Custom "Bottle"),
+    ("<quantity> plant", "(plant((en)|(jes?))?)", TQuantity.Custom "Plant"),
+    ("<quantity> blik", "(blik((ken)|(jes?))?)", TQuantity.Custom "Can"),
+    ("<quantity> klontje", "(klont((en)|(jes?))?)", TQuantity.Custom "Knob")
   ]
 
 opsMap :: HashMap Text (Double -> Double)

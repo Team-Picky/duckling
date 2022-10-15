@@ -251,5 +251,45 @@ allExamples =
           "2 vleugjes olijfolie",
           "2 scheuten olijfolie",
           "2 scheutjes olijfolie"
+        ],
+      examples
+        (simple (Custom "Bottle") 1 (Just "olijfolie"))
+        [ "1 fles olijfolie",
+          "1 flesje olijfolie"
+        ],
+      examples
+        (simple (Custom "Bottle") 2 (Just "olijfolie"))
+        [ "2 flessen olijfolie",
+          "2 flesjes olijfolie"
+        ],
+      examples
+        (simple (Custom "Plant") 1 (Just "basilicum"))
+        [ "1 plant basilicum",
+          "1 plantje basilicum"
+        ],
+      examples
+        (simple (Custom "Plant") 2 (Just "basilicum"))
+        [ "2 planten basilicum",
+          "2 plantjes basilicum"
+        ],
+      examples
+        (simple (Custom "Can") 1 (Just "tomaten"))
+        [ "1 blik tomaten",
+          "1 blikje tomaten"
+        ],
+      examples
+        (simple (Custom "Can") 2 (Just "tomaten"))
+        [ "2 blikken tomaten",
+          "2 blikjes tomaten"
+        ],
+      examples
+        (simple (Custom "Knob") 1 (Just "boter"))
+        [ "1 klont boter",
+          "1 klontje boter"
+        ],
+      examples
+        (simple (Custom "Knob") 2 (Just "boter"))
+        [ "2 klonten boter",
+          "2 klontjes boter"
         ]
     ]
