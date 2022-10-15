@@ -3,80 +3,105 @@
 --
 -- This source code is licensed under the BSD-style license found in the
 -- LICENSE file in the root directory of this source tree.
-
-
 {-# LANGUAGE GADTs #-}
 
-
 module Duckling.Volume.Helpers
-  ( getValue
-  , flatmap
-  , isSimpleVolume
-  , isUnitOnly
-  , volume
-  , unitOnly
-  , valueOnly
-  , withUnit
-  , withValue
-  , withInterval
-  , withMin
-  , withMax
-  ) where
+  ( getValue,
+    flatmap,
+    isSimpleVolume,
+    isUnitOnly,
+    volume,
+    unitOnly,
+    valueOnly,
+    withUnit,
+    withValue,
+    withInterval,
+    withMin,
+    withMax,
+    withProduct,
+  )
+where
 
 import Data.HashMap.Strict (HashMap)
-import Data.Text (Text)
-import Prelude
 import qualified Data.HashMap.Strict as HashMap
+import Data.Text (Text)
 import qualified Data.Text as Text
-
 import Duckling.Dimensions.Types
-import Duckling.Volume.Types (Unit(..), VolumeData(..))
 import Duckling.Types
+import Duckling.Volume.Types (Unit (..), VolumeData (..))
 import qualified Duckling.Volume.Types as TVolume
+import Prelude
 
 getValue :: HashMap Text (Double -> Double) -> Text -> Double -> Double
 getValue opsMap match = HashMap.lookupDefault id (Text.toLower match) opsMap
 
 flatmap :: (t -> [a]) -> [t] -> [a]
 flatmap _ [] = []
-flatmap f (x:xs) = f x ++ flatmap f xs
+flatmap f (x : xs) = f x ++ flatmap f xs
 
 -- -----------------------------------------------------------------
 -- Patterns
 
 isSimpleVolume :: Predicate
-isSimpleVolume (Token Volume VolumeData {TVolume.value = Just _
-                                        , TVolume.minValue = Nothing
-                                        , TVolume.maxValue = Nothing}) = True
+isSimpleVolume
+  ( Token
+      Volume
+      VolumeData
+        { TVolume.value = Just _,
+          TVolume.minValue = Nothing,
+          TVolume.maxValue = Nothing
+        }
+    ) = True
 isSimpleVolume _ = False
 
 isUnitOnly :: Predicate
-isUnitOnly (Token Volume VolumeData {TVolume.value = Nothing
-                                    , TVolume.unit = Just _
-                                    , TVolume.minValue = Nothing
-                                    , TVolume.maxValue = Nothing}) = True
+isUnitOnly
+  ( Token
+      Volume
+      VolumeData
+        { TVolume.value = Nothing,
+          TVolume.unit = Just _,
+          TVolume.minValue = Nothing,
+          TVolume.maxValue = Nothing
+        }
+    ) = True
 isUnitOnly _ = False
 
 -- -----------------------------------------------------------------
 -- Production
 
 volume :: Unit -> Double -> VolumeData
-volume u v = VolumeData {TVolume.unit = Just u
-                        , TVolume.value = Just v
-                        , TVolume.minValue = Nothing
-                        , TVolume.maxValue = Nothing}
+volume u v =
+  VolumeData
+    { TVolume.unit = Just u,
+      TVolume.value = Just v,
+      TVolume.aproduct = Nothing,
+      TVolume.minValue = Nothing,
+      TVolume.maxValue = Nothing
+    }
 
 unitOnly :: Unit -> VolumeData
-unitOnly u = VolumeData {TVolume.unit = Just u
-                        , TVolume.value = Nothing
-                        , TVolume.minValue = Nothing
-                        , TVolume.maxValue = Nothing}
+unitOnly u =
+  VolumeData
+    { TVolume.unit = Just u,
+      TVolume.value = Nothing,
+      TVolume.aproduct = Nothing,
+      TVolume.minValue = Nothing,
+      TVolume.maxValue = Nothing
+    }
 
 valueOnly :: Double -> VolumeData
-valueOnly v = VolumeData {TVolume.unit = Nothing
-                        , TVolume.value = Just v
-                        , TVolume.minValue = Nothing
-                        , TVolume.maxValue = Nothing}
+valueOnly v =
+  VolumeData
+    { TVolume.unit = Nothing,
+      TVolume.value = Just v,
+      TVolume.aproduct = Nothing,
+      TVolume.minValue = Nothing,
+      TVolume.maxValue = Nothing
+    }
+
+withProduct :: Text -> VolumeData -> VolumeData
+withProduct p vd = vd {TVolume.aproduct = Just p}
 
 withUnit :: Unit -> VolumeData -> VolumeData
 withUnit u vd = vd {TVolume.unit = Just u}
@@ -85,9 +110,12 @@ withValue :: Double -> VolumeData -> VolumeData
 withValue v vd = vd {TVolume.value = Just v}
 
 withInterval :: (Double, Double) -> VolumeData -> VolumeData
-withInterval (from, to) vd = vd {TVolume.value = Nothing
-                                , TVolume.minValue = Just from
-                                , TVolume.maxValue = Just to}
+withInterval (from, to) vd =
+  vd
+    { TVolume.value = Nothing,
+      TVolume.minValue = Just from,
+      TVolume.maxValue = Just to
+    }
 
 withMin :: Double -> VolumeData -> VolumeData
 withMin from vd = vd {TVolume.minValue = Just from}
