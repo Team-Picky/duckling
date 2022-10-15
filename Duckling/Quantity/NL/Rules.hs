@@ -105,7 +105,7 @@ ruleQuantityOfProduct =
     { name = "<quantity> product",
       pattern =
         [ dimension Quantity,
-          regex "(\\S+(?: +\\S+)*)"
+          regex "(?:(\\S+(?: +\\S+)*) *(?<! naar smaak)$)"
         ],
       prod = \case
         (Token Quantity qd : Token RegexMatch (GroupMatch (product : _)) : _) ->
@@ -123,6 +123,20 @@ rulePrecision =
         ],
       prod = \case
         (_ : token : _) -> Just token
+        _ -> Nothing
+    }
+
+ruleAddendum :: Rule
+ruleAddendum =
+  Rule
+    { name = "<quantity> naar smaak",
+      pattern =
+        [ dimension Quantity,
+          regex "(?:(\\S+(?: +\\S+)*)(?: +naar +smaak))"
+        ],
+      prod = \case
+        (Token Quantity qd : Token RegexMatch (GroupMatch (product : _)) : _) ->
+          Just . Token Quantity $ withProduct (Text.toLower product) qd
         _ -> Nothing
     }
 
@@ -299,7 +313,8 @@ rules =
     ruleIntervalBetween,
     ruleIntervalNumeralDash,
     ruleIntervalDash,
-    rulePrecision
+    rulePrecision,
+    ruleAddendum
   ]
     ++ ruleNumeralQuantities
     ++ ruleAQuantity

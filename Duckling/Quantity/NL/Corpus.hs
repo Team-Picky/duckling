@@ -52,7 +52,8 @@ allExamples =
         ],
       examples
         (simple Cup 1 (Just "suiker"))
-        [ "1 kopje suiker"
+        [ "1 kopje suiker naar smaak",
+          "1 kopje suiker"
         ],
       examples
         (simple Cup 1 (Just "blonde suiker"))
@@ -109,7 +110,8 @@ allExamples =
       examples
         (simple Sniff 1 (Just "zout"))
         [ "1 snuifje zout",
-          "een snuifje zout"
+          "een snuifje zout",
+          "een snuifje zout naar smaak"
         ],
       examples
         (simple Teaspoon 1 (Just "suiker"))
