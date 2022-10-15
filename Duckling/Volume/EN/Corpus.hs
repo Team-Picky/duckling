@@ -101,6 +101,10 @@ allExamples =
         [ "3 hectoliters"
         ],
       examples
+        (simple Hectolitre 3 (Just "milk"))
+        [ "3 hl milk to taste"
+        ],
+      examples
         (between Litre (100, 1000) Nothing)
         [ "between 100 and 1000 liters",
           "100-1000 liters",

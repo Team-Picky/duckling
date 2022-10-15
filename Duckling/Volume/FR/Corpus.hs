@@ -59,5 +59,33 @@ allExamples =
       examples
         (simple Litre 0.25 Nothing)
         [ "quart de litre"
+        ],
+      examples
+        (simple Hectolitre 3 (Just "lait"))
+        [ "3 hl lait au goût"
+        ],
+      examples
+        (between Litre (100, 1000) Nothing)
+        [ "100-1000 litres",
+          "100 - 1000 l"
+        ],
+      examples
+        (between Litre (2, 7) Nothing)
+        [ "environ 2 -7 l",
+          "~2-7 litres",
+          "exacte 2 - 7 l",
+          "2 - ~7 litres"
+        ],
+      examples
+        (under Litre 6 Nothing)
+        [ "moins de six litres",
+          "au plus six litre",
+          "au maximum 6 litres"
+        ],
+      examples
+        (above Hectolitre 2 Nothing)
+        [ "plus de 2 hectolitres",
+          "au moins deux hectolitres",
+          "au minimum 2 hectolitres"
         ]
     ]
