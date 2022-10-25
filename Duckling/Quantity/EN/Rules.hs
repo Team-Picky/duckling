@@ -53,7 +53,8 @@ quantities =
     ("<quantity> fles", "(bottles?)", TQuantity.Custom "Bottle"),
     ("<quantity> plant", "(plants?)", TQuantity.Custom "Plant"),
     ("<quantity> blik", "(cans?)", TQuantity.Custom "Can"),
-    ("<quantity> klontje", "((knobs?)|(lumps?))", TQuantity.Custom "Knob")
+    ("<quantity> klontje", "((knobs?)|(lumps?))", TQuantity.Custom "Knob"),
+    ("<quantity> leaf", "(lea((f)|(ves))?)", TQuantity.Custom "Leaf")
   ]
 
 opsMap :: HashMap Text (Double -> Double)

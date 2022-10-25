@@ -51,7 +51,8 @@ quantities =
     ("<quantity> fles", "(bouteilles?)", TQuantity.Custom "Bottle"),
     ("<quantity> plant", "(plantes?)", TQuantity.Custom "Plant"),
     ("<quantity> blik", "((boîtes?)|(conserves?))", TQuantity.Custom "Can"),
-    ("<quantity> klontje", "((noi((x)|(settes?))?)|(morceaux?)|(mottes?))", TQuantity.Custom "Knob")
+    ("<quantity> klontje", "((noi((x)|(settes?))?)|(morceaux?)|(mottes?))", TQuantity.Custom "Knob"),
+    ("<quantity> feuille", "(feuilles?)", TQuantity.Custom "Leaf")
   ]
 
 opsMap :: HashMap Text (Double -> Double)

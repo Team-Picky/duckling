@@ -260,5 +260,13 @@ allExamples =
           "2 noisettes de beurre",
           "2 morceaux de beurre",
           "2 mottes de beurre"
+        ],
+      examples
+        (simple (Custom "Leaf") 1 (Just "laurier"))
+        [ "1 feuille de laurier"
+        ],
+      examples
+        (simple (Custom "Leaf") 2 (Just "laurier"))
+        [ "2 feuilles de laurier"
         ]
     ]

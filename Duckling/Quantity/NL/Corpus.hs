@@ -53,7 +53,8 @@ allExamples =
       examples
         (simple Cup 1 (Just "suiker"))
         [ "1 kopje suiker naar smaak",
-          "1 kopje suiker"
+          "1 kopje suiker",
+          "1 dopje suiker"
         ],
       examples
         (simple Cup 1 (Just "blonde suiker"))
@@ -61,7 +62,8 @@ allExamples =
         ],
       examples
         (simple Cup 3 (Just "suiker"))
-        [ "3 kopjes suiker"
+        [ "3 kopjes suiker",
+          "3 dopjes suiker"
         ],
       examples
         (simple Cup 0.75 Nothing)
@@ -291,5 +293,17 @@ allExamples =
         (simple (Custom "Knob") 2 (Just "boter"))
         [ "2 klonten boter",
           "2 klontjes boter"
+        ],
+      examples
+        (simple (Custom "Leaf") 1 (Just "laurier"))
+        [ "1 blad laurier",
+          "1 blaadje laurier"
+        ],
+      examples
+        (simple (Custom "Leaf") 2 (Just "laurier"))
+        [ "2 bladen laurier",
+          "2 bladeren laurier",
+          "2 blaadjes laurier",
+          "2 bladjes laurier"
         ]
     ]

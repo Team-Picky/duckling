@@ -293,5 +293,13 @@ allExamples =
         (simple (Custom "Knob") 2 (Just "butter"))
         [ "2 knobs of butter",
           "2 lumps of butter"
+        ],
+      examples
+        (simple (Custom "Leaf") 1 (Just "bay"))
+        [ "1 leaf of bay"
+        ],
+      examples
+        (simple (Custom "Leaf") 2 (Just "bay"))
+        [ "2 leaves of bay"
         ]
     ]

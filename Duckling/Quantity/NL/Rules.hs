@@ -30,7 +30,7 @@ import Prelude
 
 quantities :: [(Text, String, TQuantity.Unit)]
 quantities =
-  [ ("<quantity> kopje", "(kopjes?)", TQuantity.Cup),
+  [ ("<quantity> kopje", "((k|d)opjes?)", TQuantity.Cup),
     ("<quantity> grams", "(g((r)?(am)?)?)", TQuantity.Gram),
     ("<quantity> milligrams", "((m(illi)?)(g(ram)?))", TQuantity.Gram),
     ("<quantity> kilograms", "((k(ilo)?)(g(ram)?)?)", TQuantity.Gram),
@@ -55,7 +55,8 @@ quantities =
     ("<quantity> fles", "(fles((sen)|(jes?))?)", TQuantity.Custom "Bottle"),
     ("<quantity> plant", "(plant((en)|(jes?))?)", TQuantity.Custom "Plant"),
     ("<quantity> blik", "(blik((ken)|(jes?))?)", TQuantity.Custom "Can"),
-    ("<quantity> klontje", "(klont((en)|(jes?))?)", TQuantity.Custom "Knob")
+    ("<quantity> klontje", "(klont((en)|(jes?))?)", TQuantity.Custom "Knob"),
+    ("<quantity> blaadje", "((blad((jes)|((er)?en))?)|(blaadjes?))", TQuantity.Custom "Leaf")
   ]
 
 opsMap :: HashMap Text (Double -> Double)
