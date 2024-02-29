@@ -61,21 +61,21 @@ Duckling supports many languages, but most don't support all dimensions yet
 (**we need your help!**).
 Please look into [this directory](https://github.com/facebook/duckling/blob/master/Duckling/Dimensions) for language-specific support.
 
-| Dimension | Example input | Example value output
-| --------- | ------------- | --------------------
-| `AmountOfMoney` | "42€" | `{"value":42,"type":"value","unit":"EUR"}`
-| `CreditCardNumber` | "4111-1111-1111-1111" | `{"value":"4111111111111111","issuer":"visa"}`
-| `Distance` | "6 miles" | `{"value":6,"type":"value","unit":"mile"}`
-| `Duration` | "3 mins" | `{"value":3,"minute":3,"unit":"minute","normalized":{"value":180,"unit":"second"}}`
-| `Email` | "duckling-team@fb.com" | `{"value":"duckling-team@fb.com"}`
-| `Numeral` | "eighty eight" | `{"value":88,"type":"value"}`
-| `Ordinal` | "33rd" | `{"value":33,"type":"value"}`
-| `PhoneNumber` | "+1 (650) 123-4567" | `{"value":"(+1) 6501234567"}`
-| `Quantity` | "3 cups of sugar" | `{"value":3,"type":"value","product":"sugar","unit":"cup"}`
-| `Temperature` | "80F" | `{"value":80,"type":"value","unit":"fahrenheit"}`
-| `Time` | "today at 9am" | `{"values":[{"value":"2016-12-14T09:00:00.000-08:00","grain":"hour","type":"value"}],"value":"2016-12-14T09:00:00.000-08:00","grain":"hour","type":"value"}`
-| `Url` | "https://api.wit.ai/message?q=hi" | `{"value":"https://api.wit.ai/message?q=hi","domain":"api.wit.ai"}`
-| `Volume` | "4 gallons" | `{"value":4,"type":"value","unit":"gallon"}`
+| Dimension          | Example input                     | Example value output                                                                                                                                         |
+| ------------------ | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `AmountOfMoney`    | "42€"                             | `{"value":42,"type":"value","unit":"EUR"}`                                                                                                                   |
+| `CreditCardNumber` | "4111-1111-1111-1111"             | `{"value":"4111111111111111","issuer":"visa"}`                                                                                                               |
+| `Distance`         | "6 miles"                         | `{"value":6,"type":"value","unit":"mile"}`                                                                                                                   |
+| `Duration`         | "3 mins"                          | `{"value":3,"minute":3,"unit":"minute","normalized":{"value":180,"unit":"second"}}`                                                                          |
+| `Email`            | "duckling-team@fb.com"            | `{"value":"duckling-team@fb.com"}`                                                                                                                           |
+| `Numeral`          | "eighty eight"                    | `{"value":88,"type":"value"}`                                                                                                                                |
+| `Ordinal`          | "33rd"                            | `{"value":33,"type":"value"}`                                                                                                                                |
+| `PhoneNumber`      | "+1 (650) 123-4567"               | `{"value":"(+1) 6501234567"}`                                                                                                                                |
+| `Quantity`         | "3 cups of sugar"                 | `{"value":3,"type":"value","product":"sugar","unit":"cup"}`                                                                                                  |
+| `Temperature`      | "80F"                             | `{"value":80,"type":"value","unit":"fahrenheit"}`                                                                                                            |
+| `Time`             | "today at 9am"                    | `{"values":[{"value":"2016-12-14T09:00:00.000-08:00","grain":"hour","type":"value"}],"value":"2016-12-14T09:00:00.000-08:00","grain":"hour","type":"value"}` |
+| `Url`              | "https://api.wit.ai/message?q=hi" | `{"value":"https://api.wit.ai/message?q=hi","domain":"api.wit.ai"}`                                                                                          |
+| `Volume`           | "4 gallons"                       | `{"value":4,"type":"value","unit":"gallon"}`                                                                                                                 |
 
 [Custom dimensions](https://github.com/facebook/duckling/blob/master/exe/CustomDimensionExample.hs) are also supported.
 
@@ -93,25 +93,25 @@ running the test suite.
 To extend Duckling's support for a dimension in a given language, typically 4
 files need to be updated:
 
-* `Duckling/<Dimension>/<Lang>/Rules.hs`
+- `Duckling/<Dimension>/<Lang>/Rules.hs`
 
-* `Duckling/<Dimension>/<Lang>/Corpus.hs`
+- `Duckling/<Dimension>/<Lang>/Corpus.hs`
 
-* `Duckling/Dimensions/<Lang>.hs` (if not already present in `Duckling/Dimensions/Common.hs`)
+- `Duckling/Dimensions/<Lang>.hs` (if not already present in `Duckling/Dimensions/Common.hs`)
 
-* `Duckling/Rules/<Lang>.hs`
+- `Duckling/Rules/<Lang>.hs`
 
 To add a new language:
 
-* Make sure that the language code used follows the [ISO-639-1 standard](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
-* The first dimension to implement is `Numeral`.
-* Follow [this example](https://github.com/facebook/duckling/commit/24d3f199768be970149412c95b1c1bf5d76f8240).
+- Make sure that the language code used follows the [ISO-639-1 standard](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
+- The first dimension to implement is `Numeral`.
+- Follow [this example](https://github.com/facebook/duckling/commit/24d3f199768be970149412c95b1c1bf5d76f8240).
 
 To add a new locale:
 
-* There should be a need for diverging rules between the locale and the language.
-* Make sure that the locale code is a valid [ISO3166 alpha2 country code](https://www.iso.org/obp/ui/#search/code/).
-* Follow [this example](https://github.com/facebook/duckling/commit/1ab5f447d2635fe6d48887a501d333a52adff5b9).
+- There should be a need for diverging rules between the locale and the language.
+- Make sure that the locale code is a valid [ISO3166 alpha2 country code](https://www.iso.org/obp/ui/#search/code/).
+- Follow [this example](https://github.com/facebook/duckling/commit/1ab5f447d2635fe6d48887a501d333a52adff5b9).
 
 Rules have a name, a pattern and a production.
 Patterns are used to perform character-level matching (regexes on input) and
@@ -142,3 +142,12 @@ in|within|after <duration> (in two minutes)
 ## License
 
 Duckling is [BSD-licensed](LICENSE).
+
+## Docker build & push
+
+```
+docker build .
+docker tag d5a8e4195610 facebook/duckling
+docker tag facebook/duckling:latest europe-west1-docker.pkg.dev/picky-f7d8d/haskell-duckling/duckling
+sudo docker push europe-west1-docker.pkg.dev/dagelijkse-kost-staging/haskell-duckling/duckling
+```
