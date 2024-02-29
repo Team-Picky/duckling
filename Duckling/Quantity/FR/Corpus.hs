@@ -268,5 +268,26 @@ allExamples =
       examples
         (simple (Custom "Leaf") 2 (Just "laurier"))
         [ "2 feuilles de laurier"
+        ],
+      examples
+        (simple (Custom "Cap") 1 (Just "sucre"))
+        [ "1 bouchon sucre",
+          "1 capsule de sucre"
+        ],
+      examples
+        (simple (Custom "Cap") 1 (Just "fraises fraîches"))
+        [ "1 bouchon fraises fraîches",
+          "1 capsule de fraises fraîches"
+        ],
+      examples
+        (simple (Custom "Cap") 3 (Just "sucre"))
+        [ "3 bouchons sucre",
+          "3 capsules de sucre"
+        ],
+      examples
+        (simple (Custom "Cap") 0.75 Nothing)
+        [ "3/4 bouchon",
+          "0,75 capsule",
+          ",75 capsule"
         ]
     ]

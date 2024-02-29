@@ -301,5 +301,21 @@ allExamples =
       examples
         (simple (Custom "Leaf") 2 (Just "bay"))
         [ "2 leaves of bay"
+        ],
+      examples
+        (simple (Custom "Cap") 3 (Just "sugar"))
+        [ "3 Caps of sugar",
+          "3 Capfuls of Sugar"
+        ],
+      examples
+        (simple (Custom "Cap") 1 (Just "sugar"))
+        [ "1 cap sugar",
+          "1 capful sugar"
+        ],
+      examples
+        (simple (Custom "Cap") 0.75 Nothing)
+        [ "3/4 cap",
+          "0.75 caps",
+          ".75 caps"
         ]
     ]

@@ -45,16 +45,17 @@ quantities =
     ("<quantity> splash", "((splash(es)?)|(touch(es)?)|(dash(es)?))", TQuantity.Custom "Splash"),
     ("<quantity> piece", "(pieces?)", TQuantity.Custom "Piece"),
     ("<quantity> pot", "((little )?pots?)", TQuantity.Custom "Pot"),
-    ("<quantity> pot", "(packages?)", TQuantity.Custom "Package"),
-    ("<quantity> pot", "(bags?)", TQuantity.Custom "Bag"),
-    ("<quantity> stronk", "(stumps?)", TQuantity.Custom "Stump"),
-    ("<quantity> stengel", "(stalks?)", TQuantity.Custom "Stalk"),
-    ("<quantity> blok", "(cubes?)", TQuantity.Custom "Cube"),
-    ("<quantity> fles", "(bottles?)", TQuantity.Custom "Bottle"),
+    ("<quantity> package", "(packages?)", TQuantity.Custom "Package"),
+    ("<quantity> bag", "(bags?)", TQuantity.Custom "Bag"),
+    ("<quantity> stump", "(stumps?)", TQuantity.Custom "Stump"),
+    ("<quantity> stalk", "(stalks?)", TQuantity.Custom "Stalk"),
+    ("<quantity> cube", "(cubes?)", TQuantity.Custom "Cube"),
+    ("<quantity> bottle", "(bottles?)", TQuantity.Custom "Bottle"),
     ("<quantity> plant", "(plants?)", TQuantity.Custom "Plant"),
-    ("<quantity> blik", "(cans?)", TQuantity.Custom "Can"),
-    ("<quantity> klontje", "((knobs?)|(lumps?))", TQuantity.Custom "Knob"),
-    ("<quantity> leaf", "(lea((f)|(ves))?)", TQuantity.Custom "Leaf")
+    ("<quantity> can", "(cans?)", TQuantity.Custom "Can"),
+    ("<quantity> knob", "((knobs?)|(lumps?))", TQuantity.Custom "Knob"),
+    ("<quantity> leaf", "(lea((f)|(ves))?)", TQuantity.Custom "Leaf"),
+    ("<quantity> cap", "(cap(ful)?s?)", TQuantity.Custom "Cap")
   ]
 
 opsMap :: HashMap Text (Double -> Double)

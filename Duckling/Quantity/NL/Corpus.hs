@@ -306,7 +306,7 @@ allExamples =
           "2 bladjes laurier"
         ],
       examples
-        (simple Cup 1 (Just "suiker"))
+        (simple (Custom "Cap") 1 (Just "suiker"))
         [ "1 dopje suiker naar smaak",
           "1 dopje suiker",
           "1 dop suiker"
